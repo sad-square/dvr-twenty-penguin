@@ -4,20 +4,20 @@
 > Necessary packages to resolve the compatibility issues:
 
 ```
-sudo pacman -S xcb-util-cursor xcb-util xcb-util-wm xcb-util-image xcb-util-keysyms xcb-util-renderutil
-```
-
-## Prep2
-> Optimize compatibility by moving some libraries: 
-
-```
-cd /opt/resolve/libs && sudo mkdir disabled-libraries && sudo mv libglib* libgio* libgmodule* disabled-libraries
+sudo dnf install libxcrypt-compat libcurl libcurl-devel mesa-libGLU --allowerasing
 ```
 
 ## Run the installer
 
 ```
 SKIP_PACKAGE_CHECK=1 ./<package-name>.run
+```
+
+## Before Launching the app
+> Optimize compatibility by moving some libraries: 
+
+```
+cd /opt/resolve/libs && sudo mkdir disabled-libraries && sudo mv libglib* libgio* libgmodule* disabled-libraries
 ```
 
 ## Apply
